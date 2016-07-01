@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.24
-Release  : 22
+Release  : 23
 URL      : http://cython.org/release/Cython-0.24.tar.gz
 Source0  : http://cython.org/release/Cython-0.24.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
