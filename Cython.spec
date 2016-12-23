@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.24.1
-Release  : 28
+Release  : 28a
 URL      : https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz
 Source0  : https://pypi.python.org/packages/c6/fe/97319581905de40f1be7015a0ea1bd336a756f6249914b148a17eefa75dc/Cython-0.24.1.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
@@ -14,7 +14,7 @@ Requires: Cython-bin
 Requires: Cython-python
 BuildRequires : coverage
 BuildRequires : gdb
-BuildRequires : numpy
+#BuildRequires : numpy
 BuildRequires : pbr
 BuildRequires : pip
 BuildRequires : python-dev
