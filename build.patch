@@ -1,0 +1,11 @@
+--- Cython-0.24/tests/run/numpy_math.pyx~	2016-03-26 17:02:23.000000000 +0000
++++ Cython-0.24/tests/run/numpy_math.pyx	2016-07-05 01:46:06.762164312 +0000
+@@ -3,7 +3,7 @@
+ # Numpy <= 1.7.1 doesn't have a C++ guard in the header file.
+ 
+ cimport numpy.math as npmath
+-
++cimport numpy as np
+ 
+ def test_fp_classif():
+     """
