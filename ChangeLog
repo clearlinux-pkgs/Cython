@@ -2,6 +2,134 @@
 Cython Changelog
 ================
 
+
+0.26.1 (2017-08-29)
+===================
+
+Features added
+--------------
+
+Bugs fixed
+----------
+
+* ``cython.view.array`` was missing ``.__len__()``.
+
+* Extension types with a ``.pxd`` override for their ``__releasebuffer__`` slot
+  (e.g. as provided by Cython for the Python ``array.array`` type) could leak
+  a reference to the buffer owner on release, thus not freeing the memory.
+  (Github issue #1638)
+
+* Auto-decoding failed in 0.26 for strings inside of C++ containers.
+  (Github issue #1790)
+
+* Compile error when inheriting from C++ container types.
+  (Github issue #1788)
+
+* Invalid C code in generators (declaration after code).
+  (Github issue #1801)
+
+* Arithmetic operations on ``const`` integer variables could generate invalid code.
+  (Github issue #1798)
+
+* Local variables with names of special Python methods failed to compile inside of
+  closures. (Github issue #1797)
+
+* Problem with indirect Emacs buffers in cython-mode.
+  Patch by Martin Albrecht (Github issue #1743).
+
+* Extension types named ``result`` or ``PickleError`` generated invalid unpickling code.
+  Patch by Jason Madden (Github issue #1786).
+
+* Bazel integration failed to compile ``.py`` files.
+  Patch by Guro Bokum (Github issue #1784).
+
+* Some include directories and dependencies were referenced with their absolute paths
+  in the generated files despite lying within the project directory.
+
+
+0.26 (2017-07-19)
+=================
+
+Features added
+--------------
+
+* Pythran can be used as a backend for evaluating NumPy array expressions.
+  Patch by Adrien Guinet (Github issue #1607).
+
+* cdef classes now support pickling by default when possible.
+  This can be disabled with the ``auto_pickle`` directive.
+
+* Speed up comparisons of strings if their hash value is available.
+  Patch by Claudio Freire (Github issue #1571).
+
+* Support pyximport from zip files.
+  Patch by Sergei Lebedev (Github issue #1485).
+
+* IPython magic now respects the ``__all__`` variable and ignores
+  names with leading-underscore (like ``import *`` does).
+  Patch by Syrtis Major (Github issue #1625).
+
+* ``abs()`` is optimised for C complex numbers.
+  Patch by da-woods (Github issue #1648).
+
+* The display of C lines in Cython tracebacks can now be enabled at runtime
+  via ``import cython_runtime; cython_runtime.cline_in_traceback=True``.
+  The default has been changed to False.
+
+* The overhead of calling fused types generic functions was reduced.
+
+* "cdef extern" include files are now also searched relative to the current file.
+  Patch by Jeroen Demeyer (Github issue #1654).
+
+* Optional optimization for re-aquiring the GIL, controlled by the
+  `fast_gil` directive.
+
+Bugs fixed
+----------
+
+* Item lookup/assignment with a unicode character as index that is typed
+  (explicitly or implicitly) as ``Py_UCS4`` or ``Py_UNICODE`` used the
+  integer value instead of the Unicode string value. Code that relied on
+  the previous behaviour now triggers a warning that can be disabled by
+  applying an explicit cast. (Github issue #1602)
+
+* f-string processing was adapted to changes in PEP 498 and CPython 3.6.
+
+* Invalid C code when decoding from UTF-16(LE/BE) byte strings.
+  (Github issue #1696)
+
+* Unicode escapes in 'ur' raw-unicode strings were not resolved in Py2 code.
+  Original patch by Aaron Gallagher (Github issue #1594).
+
+* File paths of code objects are now relative.
+  Original patch by Jelmer Vernooij (Github issue #1565).
+
+* Decorators of cdef class methods could be executed twice.
+  Patch by Jeroen Demeyer (Github issue #1724).
+
+* Dict iteration using the Py2 ``iter*`` methods failed in PyPy3.
+  Patch by Armin Rigo (Github issue #1631).
+
+* Several warnings in the generated code are now suppressed.
+
+Other changes
+-------------
+
+* The ``unraisable_tracebacks`` option now defaults to ``True``.
+
+* Coercion of C++ containers to Python is no longer automatic on attribute
+  access (Github issue #1521).
+
+* Access to Python attributes of cimported modules without the corresponding
+  import is now a compile-time (rather than runtime) error.
+
+* Do not use special dll linkage for "cdef public" functions.
+  Patch by Jeroen Demeyer (Github issue #1687).
+
+* cdef/cpdef methods must match their declarations.  See Github Issue #1732.
+  This is now a warning and will be an error in future releases.
+
+
 0.25.2 (2016-12-08)
 ===================
 

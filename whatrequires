@@ -1,0 +1,20 @@
+# This file contains recursive sources that require this package
+Cython
+Keras
+PyWavelets
+Theano
+ceph
+compat-opencv-soname32
+gensim
+gevent
+h5py
+matplotlib
+numpy
+opencv
+pandas
+scikit-image
+scikit-learn
+scipy
+tensorflow
+tflearn
+websockify
