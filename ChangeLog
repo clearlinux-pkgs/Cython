@@ -2,6 +2,57 @@
 Cython Changelog
 ================
 
+0.27.1 (2017-10-01)
+===================
+
+Features added
+--------------
+
+* The Jupyter magic has a new debug option ``--verbose`` that shows details about
+  the distutils invocation.  Patch by Boris Filippov (Github issue #1881).
+
+Bugs fixed
+----------
+
+* Py3 list comprehensions in class bodies resulted in invalid C code.
+  (Github issue #1889)
+
+* Modules built for later CPython 3.5.x versions failed to import in 3.5.0/3.5.1.
+  (Github issue #1880)
+
+* Deallocating fused types functions and methods kept their GC tracking enabled,
+  which could potentially lead to recursive deallocation attempts.
+
+* Crash when compiling in C++ mode with old setuptools versions.
+  (Github issue #1879)
+
+* C++ object arguments for the constructor of Cython implemented C++ are now
+  passed by reference and not by value to allow for non-copyable arguments, such
+  as ``unique_ptr``.
+
+* API-exported C++ classes with Python object members failed to compile.
+  (Github issue #1866)
+
+* Some issues with the new relaxed exception value handling were resolved.
+
+* Python classes as annotation types could prevent compilation.
+  (Github issue #1887)
+
+* Cython annotation types in Python files could lead to import failures
+  with a "cython undefined" error.  Recognised types are now turned into strings.
+
+* Coverage analysis could fail to report on extension modules on some platforms.
+
+* Annotations could be parsed (and rejected) as types even with
+  ``annotation_typing=False``.
+
+Other changes
+-------------
+
+* PEP 489 support has been disabled by default to counter incompatibilities with
+  import setups that try to reload or reinitialise modules.
+
+
 0.27 (2017-09-23)
 =================
 
