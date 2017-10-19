@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.27.1
-Release  : 36
+Release  : 37
 URL      : http://pypi.debian.net/Cython/Cython-0.27.1.tar.gz
 Source0  : http://pypi.debian.net/Cython/Cython-0.27.1.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
