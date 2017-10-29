@@ -1,0 +1,50 @@
+commit eb270f7e763f6f2313da447addfb4a29425d8672
+Author: Stefan Behnel <stefan_ml@behnel.de>
+Date:   Sun Oct 29 19:59:33 2017 +0100
+
+    Repair string forward references to extension types in cython.locals() decorator.
+
+diff --git a/Cython/Compiler/ExprNodes.py b/Cython/Compiler/ExprNodes.py
+index e71292d0f..dfe46f8a7 100644
+--- a/Cython/Compiler/ExprNodes.py
++++ b/Cython/Compiler/ExprNodes.py
+@@ -1362,6 +1362,11 @@ def _analyse_name_as_type(name, pos, env):
+     type = PyrexTypes.parse_basic_type(name)
+     if type is not None:
+         return type
++
++    global_entry = env.global_scope().lookup_here(name)
++    if global_entry and global_entry.type and global_entry.type.is_extension_type:
++        return global_entry.type
++
+     from .TreeFragment import TreeFragment
+     with local_errors(ignore=True):
+         pos = (pos[0], pos[1], pos[2]-7)
+diff --git a/tests/run/pure.pyx b/tests/run/pure.pyx
+index 0ad7772db..57a575a33 100644
+--- a/tests/run/pure.pyx
++++ b/tests/run/pure.pyx
+@@ -160,3 +160,23 @@ def test_declare_c_types(n):
+     #z01 = cython.declare(cython.floatcomplex, n+1j)
+     #z02 = cython.declare(cython.doublecomplex, n+1j)
+     #z03 = cython.declare(cython.longdoublecomplex, n+1j)
++
++
++cdef class ExtType:
++    """
++    >>> x = ExtType()
++    >>> x.forward_ref(x)
++    'ExtType'
++    """
++    @cython.locals(x="ExtType")
++    def forward_ref(self, x):
++        return cython.typeof(x)
++
++
++def ext_type_string_ref(x: "ExtType"):
++    """
++    >>> x = ExtType()
++    >>> ext_type_string_ref(x)
++    'ExtType'
++    """
++    return cython.typeof(x)

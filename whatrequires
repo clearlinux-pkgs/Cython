@@ -9,6 +9,7 @@ gensim
 gevent
 h5py
 matplotlib
+numba
 numpy
 opencv
 pandas
