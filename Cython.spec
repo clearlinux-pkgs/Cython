@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : Cython
-Version  : 0.27.2
-Release  : 39
-URL      : http://pypi.debian.net/Cython/Cython-0.27.2.tar.gz
-Source0  : http://pypi.debian.net/Cython/Cython-0.27.2.tar.gz
-Source99 : http://pypi.debian.net/Cython/Cython-0.27.2.tar.gz.asc
+Version  : 0.27.3
+Release  : 40
+URL      : http://pypi.debian.net/Cython/Cython-0.27.3.tar.gz
+Source0  : http://pypi.debian.net/Cython/Cython-0.27.3.tar.gz
+Source99 : http://pypi.debian.net/Cython/Cython-0.27.3.tar.gz.asc
 Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
@@ -25,7 +25,6 @@ BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
-Patch1: backport-ref-fix.patch
 
 %description
 easy as Python itself.  Cython is a source code translator based on Pyrex_,
@@ -82,15 +81,14 @@ python3 components for the Cython package.
 
 
 %prep
-%setup -q -n Cython-0.27.2
-%patch1 -p1
+%setup -q -n Cython-0.27.3
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1509320042
+export SOURCE_DATE_EPOCH=1510254718
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -100,7 +98,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 python runtests.py ||:
 %install
-export SOURCE_DATE_EPOCH=1509320042
+export SOURCE_DATE_EPOCH=1510254718
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
