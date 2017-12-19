@@ -6,7 +6,7 @@
 #
 Name     : Cython
 Version  : 0.27.3
-Release  : 40
+Release  : 41
 URL      : http://pypi.debian.net/Cython/Cython-0.27.3.tar.gz
 Source0  : http://pypi.debian.net/Cython/Cython-0.27.3.tar.gz
 Source99 : http://pypi.debian.net/Cython/Cython-0.27.3.tar.gz.asc
