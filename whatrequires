@@ -2,10 +2,13 @@
 Cython
 Keras
 PyWavelets
+R-fastcluster
 Theano
+aeon
 bash_kernel
 ceph
 compat-opencv-soname32
+compat-opencv-soname33
 gensim
 gevent
 h5py
@@ -14,6 +17,7 @@ ipython
 ipython-sql
 jupyter
 jupyter-notebook-gist
+jupyter_client
 matplotlib
 notebook
 numba
