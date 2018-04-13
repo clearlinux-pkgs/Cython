@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : Cython
-Version  : 0.28.1
-Release  : 43
-URL      : http://pypi.debian.net/Cython/Cython-0.28.1.tar.gz
-Source0  : http://pypi.debian.net/Cython/Cython-0.28.1.tar.gz
-Source99 : http://pypi.debian.net/Cython/Cython-0.28.1.tar.gz.asc
+Version  : 0.28.2
+Release  : 44
+URL      : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz
+Source0  : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz
+Source99 : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz.asc
 Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
@@ -70,14 +70,14 @@ python3 components for the Cython package.
 
 
 %prep
-%setup -q -n Cython-0.28.1
+%setup -q -n Cython-0.28.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1522130649
+export SOURCE_DATE_EPOCH=1523638458
 python3 setup.py build -b py3
 
 %check
