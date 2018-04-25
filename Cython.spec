@@ -6,7 +6,7 @@
 #
 Name     : Cython
 Version  : 0.28.2
-Release  : 44
+Release  : 45
 URL      : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz
 Source0  : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz
 Source99 : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz.asc
@@ -14,6 +14,7 @@ Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
 Requires: Cython-bin
+Requires: Cython-legacypython
 Requires: Cython-python3
 Requires: Cython-python
 BuildRequires : coverage
@@ -50,6 +51,15 @@ Group: Binaries
 bin components for the Cython package.
 
 
+%package legacypython
+Summary: legacypython components for the Cython package.
+Group: Default
+Requires: python-core
+
+%description legacypython
+legacypython components for the Cython package.
+
+
 %package python
 Summary: python components for the Cython package.
 Group: Default
@@ -77,17 +87,20 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523638458
+export SOURCE_DATE_EPOCH=1524730856
+python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %check
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-python runtests.py ||:
+python runtests.py -j4 ||:
 %install
+export SOURCE_DATE_EPOCH=1524730856
 rm -rf %{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -100,6 +113,10 @@ echo ----[ mark ]----
 /usr/bin/cygdb
 /usr/bin/cython
 /usr/bin/cythonize
+
+%files legacypython
+%defattr(-,root,root,-)
+/usr/lib/python2*/*
 
 %files python
 %defattr(-,root,root,-)
