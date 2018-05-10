@@ -6,7 +6,7 @@
 #
 Name     : Cython
 Version  : 0.28.2
-Release  : 45
+Release  : 46
 URL      : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz
 Source0  : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz
 Source99 : http://pypi.debian.net/Cython/Cython-0.28.2.tar.gz.asc
