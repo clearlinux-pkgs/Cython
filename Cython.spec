@@ -6,7 +6,7 @@
 #
 Name     : Cython
 Version  : 0.28.3
-Release  : 50
+Release  : 51
 URL      : http://pypi.debian.net/Cython/Cython-0.28.3.tar.gz
 Source0  : http://pypi.debian.net/Cython/Cython-0.28.3.tar.gz
 Source99 : http://pypi.debian.net/Cython/Cython-0.28.3.tar.gz.asc
