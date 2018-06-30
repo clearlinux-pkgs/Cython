@@ -23,7 +23,7 @@ BuildRequires : numpy
 BuildRequires : pbr
 BuildRequires : pip
 
-BuildRequires : python3-dev
+BuildRequires : python3-dev python-dev setuptools-legacypython
 BuildRequires : setuptools
 
 %description
