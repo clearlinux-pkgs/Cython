@@ -1,7 +1,12 @@
 # This file contains recursive sources that require this package
+Cheetah
 Cython
 Keras
+Keras_Applications
+Keras_Preprocessing
+Markdown
 PyWavelets
+PyYAML
 R-fastcluster
 Theano
 aeon
@@ -20,16 +25,20 @@ jupyter-notebook-gist
 jupyter_client
 jupyterlab
 jupyterlab_launcher
+libstoragemgmt
 matplotlib
 notebook
 numba
 numpy
 opencv
 pandas
+patsy
+pyaml
 pyzmq
 scikit-image
 scikit-learn
 scipy
+statsmodels
 tensorflow
 tflearn
 websockify

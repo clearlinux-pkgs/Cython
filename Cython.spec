@@ -5,16 +5,17 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : Cython
-Version  : 0.28.3
-Release  : 57
-URL      : http://pypi.debian.net/Cython/Cython-0.28.3.tar.gz
-Source0  : http://pypi.debian.net/Cython/Cython-0.28.3.tar.gz
-Source99 : http://pypi.debian.net/Cython/Cython-0.28.3.tar.gz.asc
+Version  : 0.28.4
+Release  : 58
+URL      : http://pypi.debian.net/Cython/Cython-0.28.4.tar.gz
+Source0  : http://pypi.debian.net/Cython/Cython-0.28.4.tar.gz
+Source99 : http://pypi.debian.net/Cython/Cython-0.28.4.tar.gz.asc
 Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
 Requires: Cython-bin
 Requires: Cython-python3
+Requires: Cython-license
 Requires: Cython-python
 BuildRequires : coverage
 BuildRequires : gdb
@@ -22,9 +23,12 @@ BuildRequires : ipython
 BuildRequires : numpy
 BuildRequires : pbr
 BuildRequires : pip
-
-BuildRequires : python3-dev python-dev setuptools-legacypython
+BuildRequires : python-core
+BuildRequires : python-dev
+BuildRequires : python3-core
+BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : setuptools-legacypython
 
 %description
 easy as Python itself.  Cython is a source code translator based on Pyrex_,
@@ -46,6 +50,7 @@ easy as Python itself.  Cython is a source code translator based on Pyrex_,
 %package bin
 Summary: bin components for the Cython package.
 Group: Binaries
+Requires: Cython-license
 
 %description bin
 bin components for the Cython package.
@@ -58,6 +63,14 @@ Requires: python-core
 
 %description legacypython
 legacypython components for the Cython package.
+
+
+%package license
+Summary: license components for the Cython package.
+Group: Default
+
+%description license
+license components for the Cython package.
 
 
 %package python
@@ -80,20 +93,23 @@ python3 components for the Cython package.
 
 
 %prep
-%setup -q -n Cython-0.28.3
+%setup -q -n Cython-0.28.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1527656695
+export SOURCE_DATE_EPOCH=1531064482
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1527656695
+export SOURCE_DATE_EPOCH=1531064482
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/doc/Cython
+cp COPYING.txt %{buildroot}/usr/share/doc/Cython/COPYING.txt
+cp LICENSE.txt %{buildroot}/usr/share/doc/Cython/LICENSE.txt
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 echo ----[ mark ]----
@@ -112,6 +128,11 @@ echo ----[ mark ]----
 %files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files license
+%defattr(-,root,root,-)
+/usr/share/doc/Cython/COPYING.txt
+/usr/share/doc/Cython/LICENSE.txt
 
 %files python
 %defattr(-,root,root,-)
