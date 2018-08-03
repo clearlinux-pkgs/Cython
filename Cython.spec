@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x44A7D230CCC5497B (consulting@behnel.de)
 #
 Name     : Cython
-Version  : 0.28.4
-Release  : 59
-URL      : http://pypi.debian.net/Cython/Cython-0.28.4.tar.gz
-Source0  : http://pypi.debian.net/Cython/Cython-0.28.4.tar.gz
-Source99 : http://pypi.debian.net/Cython/Cython-0.28.4.tar.gz.asc
+Version  : 0.28.5
+Release  : 60
+URL      : https://files.pythonhosted.org/packages/21/89/ca320e5b45d381ae0df74c4b5694f1471c1b2453c5eb4bac3449f5970481/Cython-0.28.5.tar.gz
+Source0  : https://files.pythonhosted.org/packages/21/89/ca320e5b45d381ae0df74c4b5694f1471c1b2453c5eb4bac3449f5970481/Cython-0.28.5.tar.gz
+Source99 : https://files.pythonhosted.org/packages/21/89/ca320e5b45d381ae0df74c4b5694f1471c1b2453c5eb4bac3449f5970481/Cython-0.28.5.tar.gz.asc
 Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
@@ -17,17 +17,15 @@ Requires: Cython-bin
 Requires: Cython-python3
 Requires: Cython-license
 Requires: Cython-python
+BuildRequires : buildreq-distutils23
+BuildRequires : buildreq-distutils3
 BuildRequires : coverage
 BuildRequires : gdb
 BuildRequires : ipython
 BuildRequires : numpy
-BuildRequires : pbr
-BuildRequires : pip
 BuildRequires : python-core
 BuildRequires : python-dev
-BuildRequires : python3-core
 BuildRequires : python3-dev
-BuildRequires : setuptools
 BuildRequires : setuptools-legacypython
 
 %description
@@ -93,19 +91,19 @@ python3 components for the Cython package.
 
 
 %prep
-%setup -q -n Cython-0.28.4
+%setup -q -n Cython-0.28.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1531064482
+export SOURCE_DATE_EPOCH=1533310695
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1531064482
+export SOURCE_DATE_EPOCH=1533310695
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/Cython
 cp COPYING.txt %{buildroot}/usr/share/doc/Cython/COPYING.txt
