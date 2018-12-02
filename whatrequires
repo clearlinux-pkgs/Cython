@@ -2,12 +2,14 @@
 PyWavelets
 PyYAML
 ceph
+dldt
 gensim
 gevent
 grpcio
 libseccomp
 numpy
 pandas
+python-dldt
 python-openzwave
 pyzmq
 scikit-image
