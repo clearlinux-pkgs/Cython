@@ -7,11 +7,13 @@ gensim
 gevent
 grpcio
 libseccomp
+nghttp2
 numpy
 pandas
 python-dldt
 python-openzwave
 pyzmq
+rdma-core
 scikit-image
 scikit-learn
 smartcols

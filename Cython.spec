@@ -4,17 +4,16 @@
 #
 Name     : Cython
 Version  : 0.29.6
-Release  : 73
+Release  : 74
 URL      : https://files.pythonhosted.org/packages/36/da/fcb979fc8cb486a67a013d6aefefbb95a3e19e67e49dff8a35e014046c5e/Cython-0.29.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/36/da/fcb979fc8cb486a67a013d6aefefbb95a3e19e67e49dff8a35e014046c5e/Cython-0.29.6.tar.gz
-Summary  : C-Extensions for Python
+Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
 Requires: Cython-bin = %{version}-%{release}
 Requires: Cython-license = %{version}-%{release}
 Requires: Cython-python = %{version}-%{release}
 Requires: Cython-python3 = %{version}-%{release}
-BuildRequires : buildreq-distutils23
 BuildRequires : buildreq-distutils3
 BuildRequires : coverage
 BuildRequires : gdb
@@ -36,15 +35,6 @@ Requires: Cython-license = %{version}-%{release}
 
 %description bin
 bin components for the Cython package.
-
-
-%package legacypython
-Summary: legacypython components for the Cython package.
-Group: Default
-Requires: python-core
-
-%description legacypython
-legacypython components for the Cython package.
 
 
 %package license
@@ -82,18 +72,17 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551303519
-python2 setup.py build -b py2
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1554307829
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
-export SOURCE_DATE_EPOCH=1551303519
+export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/Cython
 cp COPYING.txt %{buildroot}/usr/share/package-licenses/Cython/COPYING.txt
 cp LICENSE.txt %{buildroot}/usr/share/package-licenses/Cython/LICENSE.txt
-python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
-python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
@@ -106,10 +95,6 @@ echo ----[ mark ]----
 /usr/bin/cygdb
 /usr/bin/cython
 /usr/bin/cythonize
-
-%files legacypython
-%defattr(-,root,root,-)
-/usr/lib/python2*/*
 
 %files license
 %defattr(0644,root,root,0755)
