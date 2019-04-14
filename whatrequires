@@ -2,6 +2,9 @@
 PyWavelets
 PyYAML
 ceph
+deprecated-PyYAML
+deprecated-numpy
+deprecated-python-dldt
 dldt
 gensim
 gevent

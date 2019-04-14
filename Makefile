@@ -1,5 +1,5 @@
 PKG_NAME := Cython
-URL = https://files.pythonhosted.org/packages/36/da/fcb979fc8cb486a67a013d6aefefbb95a3e19e67e49dff8a35e014046c5e/Cython-0.29.6.tar.gz
+URL = https://files.pythonhosted.org/packages/f8/da/c979464858b257b21a6472a85285548c91f5b4dc773cb049cfdfb3ceeb02/Cython-0.29.7.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
