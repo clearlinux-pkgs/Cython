@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.29.7
-Release  : 76
+Release  : 77
 URL      : https://files.pythonhosted.org/packages/f8/da/c979464858b257b21a6472a85285548c91f5b4dc773cb049cfdfb3ceeb02/Cython-0.29.7.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f8/da/c979464858b257b21a6472a85285548c91f5b4dc773cb049cfdfb3ceeb02/Cython-0.29.7.tar.gz
 Summary  : C-Extensions for Python
