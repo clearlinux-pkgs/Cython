@@ -2,6 +2,7 @@
 PyWavelets
 PyYAML
 ceph
+conda
 deprecated-PyYAML
 deprecated-numpy
 deprecated-python-dldt
@@ -9,6 +10,7 @@ dldt
 gensim
 gevent
 grpcio
+hdmedians
 libseccomp
 nghttp2
 numpy
