@@ -7,6 +7,7 @@ deprecated-PyYAML
 deprecated-numpy
 deprecated-python-dldt
 dldt
+dldt-model-optimizer
 gensim
 gevent
 grpcio

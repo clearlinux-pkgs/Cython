@@ -4,7 +4,4 @@ gdb
 numpy
 coverage
 ipython
-python-core
-python-dev
 python3-dev
-setuptools-legacypython
