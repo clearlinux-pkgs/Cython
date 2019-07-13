@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.29.12
-Release  : 82
+Release  : 83
 URL      : https://files.pythonhosted.org/packages/5b/5b/6cba7123a089c4174f944dd05ea7984c8d908aba8746a99f2340dde8662f/Cython-0.29.12.tar.gz
 Source0  : https://files.pythonhosted.org/packages/5b/5b/6cba7123a089c4174f944dd05ea7984c8d908aba8746a99f2340dde8662f/Cython-0.29.12.tar.gz
 Summary  : C-Extensions for Python
