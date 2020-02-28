@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.29.15
-Release  : 89
+Release  : 90
 URL      : https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz
 Summary  : C-Extensions for Python
@@ -56,6 +56,7 @@ python components for the Cython package.
 Summary: python3 components for the Cython package.
 Group: Default
 Requires: python3-core
+Provides: pypi(Cython)
 
 %description python3
 python3 components for the Cython package.
@@ -70,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581350058
+export SOURCE_DATE_EPOCH=1582915637
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar

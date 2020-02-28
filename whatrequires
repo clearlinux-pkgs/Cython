@@ -20,6 +20,7 @@ pmix
 python-openzwave
 pyzmq
 rdma-core
+recode
 scikit-image
 scikit-learn
 scipy
