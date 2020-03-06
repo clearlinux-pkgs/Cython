@@ -4,10 +4,10 @@
 #
 Name     : Cython
 Version  : 0.29.15
-Release  : 90
+Release  : 91
 URL      : https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz
 Source0  : https://files.pythonhosted.org/packages/d9/82/d01e767abb9c4a5c07a6a1e6f4d5a8dfce7369318d31f48a52374094372e/Cython-0.29.15.tar.gz
-Summary  : C-Extensions for Python
+Summary  : The Cython compiler for writing C extensions for the Python language.
 Group    : Development/Tools
 License  : Apache-2.0 Python-2.0
 Requires: Cython-bin = %{version}-%{release}
@@ -22,8 +22,21 @@ BuildRequires : numpy
 BuildRequires : python3-dev
 
 %description
-Welcome to Cython's documentation.
-To build the documentation on Linux, you need Make and Sphinx installed on your system. Then execute::
+easy as Python itself.  Cython is a source code translator based on Pyrex_,
+        but supports more cutting edge functionality and optimizations.
+        
+        The Cython language is a superset of the Python language (almost all Python
+        code is also valid Cython code), but Cython additionally supports optional
+        static typing to natively call C functions, operate with C++ classes and
+        declare fast C types on variables and class attributes.  This allows the
+        compiler to generate very efficient C code from Cython code.
+        
+        This makes Cython the ideal language for writing glue code for external
+        C/C++ libraries, and for fast C modules that speed up the execution of
+        Python code.
+        
+        Note that for one-time builds, e.g. for CI/testing, on platforms that are not
+        covered by one of the wheel packages provided on PyPI, it is substantially faster
 
 %package bin
 Summary: bin components for the Cython package.
@@ -56,7 +69,7 @@ python components for the Cython package.
 Summary: python3 components for the Cython package.
 Group: Default
 Requires: python3-core
-Provides: pypi(Cython)
+Provides: pypi(cython)
 
 %description python3
 python3 components for the Cython package.
@@ -71,8 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1582915637
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583518225
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
