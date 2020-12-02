@@ -1,21 +1,18 @@
 # This file contains recursive sources that require this package
 PyWavelets
 PyYAML
-amqp
 ceph
 conda
-dldt
-dldt-model-optimizer
 gensim
 gevent
 gpgme
 grpc
 grpcio
-hdmedians
 libseccomp
 lxml
 nghttp2
 numpy
+numpy-stl
 pandas
 pmix
 python-openzwave
