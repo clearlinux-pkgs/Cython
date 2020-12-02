@@ -1,1 +1,1 @@
-python runtests.py -j4 ||:
+python runtests.py %{?_smp_mflags} --no-code-style -vv -3 --exit-ok
