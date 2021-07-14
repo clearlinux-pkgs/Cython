@@ -9,6 +9,7 @@ gevent
 gpgme
 grpc
 grpcio
+inkscape
 libseccomp
 lxml
 nghttp2
