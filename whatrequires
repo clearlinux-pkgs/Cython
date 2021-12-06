@@ -2,6 +2,7 @@
 PyWavelets
 PyYAML
 Theano
+aesara
 ceph
 conda
 gensim
