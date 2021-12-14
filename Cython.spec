@@ -4,7 +4,7 @@
 #
 Name     : Cython
 Version  : 0.29.25
-Release  : 119
+Release  : 120
 URL      : https://files.pythonhosted.org/packages/09/45/10c39337ba73c38a798165f97e4798827a532eaac71071842cbe0ee13dc5/Cython-0.29.25.tar.gz
 Source0  : https://files.pythonhosted.org/packages/09/45/10c39337ba73c38a798165f97e4798827a532eaac71071842cbe0ee13dc5/Cython-0.29.25.tar.gz
 Summary  : The Cython compiler for writing C extensions for the Python language.
